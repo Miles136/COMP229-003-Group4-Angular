@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "express";
 import { Survey } from "../../models/survey.model";
-import { SurveyRepository } from "../../models/survey.repository";
+import { SurveyRepository } from "src/app/models/survey.repository";
 
 @Component({
     selector: "list-survey",
