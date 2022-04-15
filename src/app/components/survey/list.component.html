@@ -1,0 +1,49 @@
+<!-- <%- include ../partials/header.ejs %> -->
+<app-header [title]="title"></app-header>
+  <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <h1 align="center">List of Surveys</h1>
+        <br>      
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover table-dark">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center" colspan="3">Actions</th>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <!-- <% for(let count = 0; count < Surveys.length; count++) { %> -->
+                    <tr *ngFor="let item of surveyList">
+                        <td class="text-center">{{ item.Name }}</td>
+                        <td class="text-center">{{ item.Description }}</td>
+                         <!-- This button will let you take the take the survey-->
+                        <td class="text-center">
+                            <a href="/survey/edit/<%= Surveys[count]._id %>" class="btn btn-info btn-sm">
+                            <i class="fas fa-poll-h"></i> Take Survey</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/survey/edit/<%= Surveys[count]._id %>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/survey/delete/<%= Surveys[count]._id %>" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Delete</a>
+                        </td>
+                    </tr>
+                <!-- <% } %> -->
+            </table>
+        </div>
+    </div>
+    <div align="center">
+        <a href="/survey/add" class="btn btn-primary align-self-end" role="button">
+            <i class="fas fa-plus-circle"></i> 
+            Create a New Survey
+        </a>     
+    </div>
+  </main>
+  <app-footer></app-footer>
+<!-- <%- include ../partials/footer.ejs %> -->
