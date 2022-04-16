@@ -9,10 +9,11 @@
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <h1 style="text-align: center;"><b>Registration <span style="color:rgb(21, 202, 193);">Page</span></b></h1>
         
-        <% for(var i in messages) { %>
+        <!-- <% for(var i in messages) { %>
             <div class="flash"><%= messages[i] %></div>
-        <% } %>
-        <form action="/users/signup" method="post" class="mx-1 mx-md-4" validate>
+        <% } %> -->
+        <!-- <form action="/users/signup" method="post" class="mx-1 mx-md-4" validate> -->
+        <form novalidate #form="ngForm" (ngSubmit)="signup(form)">
             <div class="row">
                 <div class="col">
             <div class="d-flex flex-row align-items-center mb-4">
@@ -20,7 +21,7 @@
                 <i class="far fa-id-card fa-lg me-3 fa-fw"></i>
                 <input type="text" 
                 name="firstname" 
-                value="<%= user.firstname %>" 
+                [(ngModel)]="user.firstName" 
                 class="form-control form-control-lg" 
                 placeholder="Enter First Name"/>
             </div>
@@ -30,7 +31,7 @@
                 
                 <input type="text"
                  name="lastname"
-                  value="<%= user.lastname %>" 
+                  [(ngModel)]="user.lastName"
                   class="form-control form-control-lg" 
                   placeholder="Enter Last Name"/>
             </div>
@@ -40,7 +41,7 @@
                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                 <input type="text"
                 name="username" 
-                value="<%= user.username %>" 
+                [(ngModel)]="user.username" 
                 class="form-control form-control-lg" 
                 placeholder="Enter New Username"/>
             </div>
@@ -51,7 +52,7 @@
                 type="email"
                 name="email"
                 placeholder="Enter a Valid Email Address"
-                value="<%= user.email %>" 
+                [(ngModel)]="user.email" 
                 />
             </div>
             <div class="d-flex flex-row align-items-center mb-4">
@@ -61,7 +62,7 @@
                 type="password"
                 name="password"
                 placeholder="Enter Password"
-                value="<%= user.password %>"
+                [(ngModel)]="user.password"
             />
             </div>
             <div class="d-flex flex-row align-items-center mb-4">
