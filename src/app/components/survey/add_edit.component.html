@@ -1,6 +1,6 @@
-<!-- <%- include ../partials/header.ejs %>
-
-    <!-- Content for the Add_Edit page --
+<!-- <%- include ../partials/header.ejs %> -->
+<app-header [title]="title"></app-header>
+    <!-- Content for the Add_Edit page -->
     <div class="container">
         <div class="row">
             <div class="offset-md-3 col-md-6">
@@ -8,36 +8,37 @@
                     {{ title }}
                 </h1>
 
-                <form class="form" method="POST">
+                <!-- <form class="form" method="POST"> -->
+                <form novalidate #form="ngForm" (ngSubmit)="save(form)">
                     <div class="form-group">
-                        <input type="hidden" name="id" value="{{ Survey._id }}">
+                        <input type="hidden" name="id" [(ngModel)]="survey._id" value="{{ survey._id }}">
                         <label for="surveyTextField">Name</label>
-                        <input type="text" class="form-control" id="surveyTextField" value="<%= Survey.Name %>"
-                            name="Name">
+                        <input type="text" class="form-control" id="surveyTextField" value="{{ survey.Name }}"
+                            name="Name" placeholder="Enter a Name for this Survey" [(ngModel)]="survey.Name" required>
                     </div>
                     <br />
                     <div class="form-group">
                         <label for="surveyTextField">Description</label>
-                        <input type="" class="form-control" id="surveyTextField" placeholder="Enter the Description"
-                            name="Description" value="{{ Survey.Description }}" >
+                        <input type="text" class="form-control" id="surveyTextField" placeholder="Enter the Description"
+                            name="Description" value="{{ survey.Description }}" [(ngModel)]="survey.Description" >
                     </div>
                     <br />
                     <div class="form-group">
                         <label for="surveyTextField">Question1</label>
                         <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="<%= Survey.Question1 %>" name="Question1" required>
+                            placeholder="{{ survey.Question1 }}" name="Question1" [(ngModel)]="survey.Question1" required>
                     </div>
                     <br />
                     <div class="form-group">
                         <label for="surveyTextField">Question2</label>
                         <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="<%= Survey.Question2 %>" name="Question2" required>
+                            placeholder="{{ survey.Question2 }}" name="Question2" [(ngModel)]="survey.Question2" required>
                     </div>
                     <br />
                     <div class="form-group">
                         <label for="surveyTextField">Question3</label>
                         <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="<%= Survey.Question3 %>" name="Question3" required>
+                            placeholder="{{ survey.Question3 }}" name="Question3" [(ngModel)]="survey.Question3" required>
                     </div>
                     <div class="mt-3">
                         <button class="btn btn-primary" type="submit">
@@ -54,4 +55,5 @@
             </div>
         </div>
     </div>
-    <%- include ../partials/footer.ejs %> -->
+    <app-footer></app-footer>
+    <!-- <%- include ../partials/footer.ejs %> -->

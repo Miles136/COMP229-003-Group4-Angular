@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Router } from "express";
+//import { Router } from "express";
+import { Router } from "@angular/router";
 import { Survey } from "../../models/survey.model";
 import { SurveyRepository } from "src/app/models/survey.repository";
 
@@ -12,6 +13,7 @@ export class ListComponent {
     title = "List of Surveys";
 
     constructor( private repository: SurveyRepository, private router: Router)
+    // constructor( private repository: SurveyRepository)
     {}
 
     get surveyList(): Survey[] {

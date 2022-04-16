@@ -4,14 +4,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { SurveyRepository } from "./survey.repository";
 import { RestDataSource } from "./rest.datasource";
 import { Survey } from "./survey.model";
-// import { AuthService } from "./auth.service";
+import { AuthService } from "./auth.service";
 
 @NgModule({
     imports: [HttpClientModule],
     providers: [
         SurveyRepository,
         RestDataSource,
-        // AuthService
+        AuthService
     ]
 })
 export class ModelModule {}
