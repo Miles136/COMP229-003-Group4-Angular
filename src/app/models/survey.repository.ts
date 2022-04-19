@@ -1,33 +1,32 @@
-import { InvokeFunctionExpr } from "@angular/compiler";
 import { Injectable } from "@angular/core";
-import { Survey } from "./survey.model";
+import { Surveys } from "./survey.model";
 import { RestDataSource } from "./rest.datasource";
 import { ResponseModel } from "./response.model";
 
 @Injectable()
 export class SurveyRepository {
 
-    private surveys: Survey[] = [];
+    private surveys: Surveys[] = [];
 
     constructor( private dataSource: RestDataSource ) {
-        dataSource.getSurveyList().subscribe( data => {
+        dataSource.getSurveysList().subscribe( data => {
             this.surveys = data;
         });
     }
 
-    getSurvey(): Survey[] {
+    getSurveys(): Surveys[] {
         return this.surveys;
     }
 
-    getItem( id: string ): Survey {
+    getSurvey( id: string ): Surveys {
         return( this.surveys.find(item => item._id === id)!);
     }
 
-    async saveSurvey( survey: Survey ) {
+    async saveSurveys( survey: Surveys ) {
 
         // Add
         if ( survey._id == null || survey._id == "" ) {
-            this.dataSource.insertSurvey(survey)
+            this.dataSource.insertSurveys(survey)
                 .subscribe(response => {
                     if(response._id) // If API created
                     {
@@ -39,8 +38,10 @@ export class SurveyRepository {
                         alert(`Error: ${error.message}`);
                     }
                 });
-        } else {
-            this.dataSource.updateSurvey(survey).subscribe(response => {
+        }
+        // Edit
+        else {
+            this.dataSource.updateSurveys(survey).subscribe(response => {
                 if (response.success) {
                     this.surveys.splice(
                         this.surveys.findIndex(i => i._id == survey._id), 
@@ -55,8 +56,8 @@ export class SurveyRepository {
         }
     }
 
-    deleteSurvey(id: string) {
-        this.dataSource.deleteInventory(id).subscribe(response => {
+    deleteSurveys(id: string) {
+        this.dataSource.deleteSurveys(id).subscribe(response => {
             if (response.success) {
                 this.surveys.splice(
                     this.surveys.findIndex(survey => survey._id == id), 

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Survey } from "../../models/survey.model";
+import { Surveys } from "../../models/survey.model";
 import { SurveyRepository } from "src/app/models/survey.repository";
 
 @Component({
@@ -11,12 +11,13 @@ import { SurveyRepository } from "src/app/models/survey.repository";
 
 export class ListComponent {
     title = "List of Surveys";
+    username?: string;
 
     constructor( private repository: SurveyRepository, private router: Router)
     {}
 
-    get surveyList(): Survey[] {
-        return this.repository.getSurvey();
+    get surveyList(): Surveys[] {
+        return this.repository.getSurveys();
     }
 
     deleteMethod(id: string) {

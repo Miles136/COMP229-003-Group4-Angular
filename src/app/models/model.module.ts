@@ -3,7 +3,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { SurveyRepository } from "./survey.repository";
 import { RestDataSource } from "./rest.datasource";
-import { Survey } from "./survey.model";
+import { Surveys } from "./survey.model";
 import { AuthService } from "./auth.service";
 
 @NgModule({

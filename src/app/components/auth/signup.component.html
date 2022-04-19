@@ -72,12 +72,13 @@
                 type="password"
                 name="password_confirm"
                 placeholder="Confirm password"
+                [(ngModel)]="user.confirm"
             />
             </div>
             <div align="center">
                 <input class="btn btn-info btn-lg" 
                 type="submit" 
-                value="Sign-up" />
+                value="Sign-up"/>
             </div>
   </form>
   <p class="text-center text-muted mt-5 mb-0">Have an account? <a href="/users/signin">Sign In</a></p>

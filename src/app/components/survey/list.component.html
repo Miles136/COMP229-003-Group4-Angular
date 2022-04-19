@@ -21,19 +21,19 @@
                 <!-- Repeatable Template Row -->
 
                 <!-- <% for(let count = 0; count < Surveys.length; count++) { %> -->
-                    <tr *ngFor="let item of surveyList">
-                        <td class="text-center">{{ item.Name }}</td>
-                        <td class="text-center">{{ item.type }}</td>
-                        <td class="text-center">{{ item.Description }}</td>
-                        <td class="text-center">{{ item.priority }}</td>
-                        <td class="text-center">{{ item.created }}</td>
+                    <tr *ngFor="let survey of surveyList">
+                        <td class="text-center" style="color:black">{{ survey.Name }}</td>
+                        <td class="text-center" style="color:black">{{ survey.type }}</td>
+                        <td class="text-center" style="color:black">{{ survey.Description }}</td>
+                        <td class="text-center" style="color:black">{{ survey.priority }}</td>
+                        <td class="text-center" style="color:black">{{ survey.created }}</td>
                         
                         <td class="text-center">
-                            <a href="/survey/edit/{{ item._id }}" class="btn btn-primary btn-sm">
+                            <a href="/survey/edit/{{ survey._id }}" class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
                         <td class="text-center">
-                            <a (click)="deleteMethod(item._id)" class="btn btn-danger btn-sm">
+                            <a (click)="deleteMethod(survey._id)" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> Delete</a>
                         </td>
                     </tr>

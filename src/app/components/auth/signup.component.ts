@@ -22,10 +22,11 @@ export class SignUpComponent {
     signup(form: NgForm) {
         if (form.valid) {
             // Checks if the passwords match.
-            if(this.user.password == this.confirmPassword){
+            var testMatch: boolean;
+            testMatch = (this.user.password == this.user.confirm) && (this.user.password != null && this.user.password != "");
+            if(testMatch){
                 this.auth.signupUser(this.user)
                     .subscribe(response => {
-                        console.log(response);
                         if (response.success) {
                             alert(response.message);
                             this.router.navigateByUrl("/users/signin");
@@ -40,4 +41,5 @@ export class SignUpComponent {
             this.message = "Form Data Invalid";
         }
     }
+
 }
