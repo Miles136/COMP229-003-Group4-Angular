@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-//import { Router } from "express";
 import { Router } from "@angular/router";
 import { Survey } from "../../models/survey.model";
 import { SurveyRepository } from "src/app/models/survey.repository";
