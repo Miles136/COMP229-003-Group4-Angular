@@ -4,7 +4,8 @@ import { Router } from "@angular/router";
 import { AuthService } from "../../models/auth.service";
 
 @Component({
-    templateUrl: "signin.component.html"
+    templateUrl: "signin.component.html",
+    styleUrls: ["../../../styles.css"]
 })
 
 export class SignInComponent {

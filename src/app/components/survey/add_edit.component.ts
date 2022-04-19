@@ -6,7 +6,8 @@ import { SurveyRepository } from "src/app/models/survey.repository";
 
 @Component({
     selector: "add-edit",
-    templateUrl: "add_edit.component.html"
+    templateUrl: "add_edit.component.html",
+    styleUrls: ["../../../styles.css"]
 })
 
 export class AddEditComponent {

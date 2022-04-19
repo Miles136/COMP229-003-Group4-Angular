@@ -9,11 +9,11 @@
             <table class="table table-bordered table-striped table-hover table-dark">
                 <!-- Header Row-->
                 <tr>
-                    <th class="text-center">Incident Record</th>
-                    <th class="text-center">Type of Incident</th>
-                    <th class="text-center">Description of Incident</th>
-                    <th class="text-center">Incident Priority</th>
-                    <th class="text-center">Date of Incident</th>
+                    <th class="text-center" style="color:black">Incident Record</th>
+                    <th class="text-center" style="color:black">Type of Incident</th>
+                    <th class="text-center" style="color:black">Description of Incident</th>
+                    <th class="text-center" style="color:black">Incident Priority</th>
+                    <th class="text-center" style="color:black">Date of Incident</th>
                     
                     <th class="text-center" colspan="2">Actions</th>
                 </tr>
@@ -33,7 +33,7 @@
                             <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
                         <td class="text-center">
-                            <a href="/survey/delete/{{ item._id }}" class="btn btn-danger btn-sm">
+                            <a (click)="deleteMethod(item._id)" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> Delete</a>
                         </td>
                     </tr>

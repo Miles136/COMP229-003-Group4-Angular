@@ -5,7 +5,8 @@ import { AuthService } from "../../models/auth.service";
 import { User } from "../../models/user.model";
 
 @Component({
-    templateUrl: "signup.component.html"
+    templateUrl: "signup.component.html",
+    styleUrls: ["../../../styles.css"]
 })
 
 export class SignUpComponent {
