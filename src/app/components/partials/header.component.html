@@ -30,16 +30,19 @@
             <li class="nav-item dropdown">
               <!-- <% if (title == "List of Surveys" || title == "Create your own Survey") { %> -->
               <a class="nav-link dropdown-toggle" [class.active]="title == 'List of Surveys' || title == 'Create your own Survey'" href="#" role="button" data-bs-toggle="dropdown">
-                  <i class="fas fa-poll"></i> Surveys
+                  <i class="fas fa-poll"></i> Incident Tickets
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/survey/list">List of Surveys</a></li>
-                <li><a class="dropdown-item" href="/survey/add">Create your own Survey</a></li>
+                <li><a class="dropdown-item" href="/survey/list">List of Incident Tickets</a></li>
+                <li><a class="dropdown-item" href="/survey/add">Submit New Ticket</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a *ngIf="true;else anon" class="nav-link" href="/users/signout"><i style="color:#313131" class="fas fa-sign-out-alt"></i> Logout User</a>
-              <ng-template #anon><a class="nav-link" href="/users/signin"><i style="color:#4e4e4e" class="fas fa-sign-in-alt"></i> Login </a></ng-template>
+                <a *ngIf="auth.username != null" class="nav-link" href="" (click)="logout()">Sign Out ({{ auth.username }})</a>
+                <a *ngIf="auth.username == null" class="nav-link" href="/users/signin">Sign In</a>
+            </li>
+            <li *ngIf="auth.username == null" class="nav-item">
+              <a class="nav-link" href="/users/signup">Sign Up</a>
             </li>
           </ul>    
         </ul>

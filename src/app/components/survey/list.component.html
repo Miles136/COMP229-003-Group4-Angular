@@ -3,15 +3,19 @@
   <!-- Main Content -->
   <main class="container">
     <div class="row">
-        <h1 align="center">List of Surveys</h1>
+        <h1 align="center">List of Incident <span style="color:rgb(21, 202, 193);">Tickets</span></h1>
         <br>      
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover table-dark">
                 <!-- Header Row-->
                 <tr>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Description</th>
-                    <th class="text-center" colspan="3">Actions</th>
+                    <th class="text-center">Incident Record</th>
+                    <th class="text-center">Type of Incident</th>
+                    <th class="text-center">Description of Incident</th>
+                    <th class="text-center">Incident Priority</th>
+                    <th class="text-center">Date of Incident</th>
+                    
+                    <th class="text-center" colspan="2">Actions</th>
                 </tr>
 
                 <!-- Repeatable Template Row -->
@@ -20,17 +24,16 @@
                     <tr *ngFor="let item of surveyList">
                         <td class="text-center">{{ item.Name }}</td>
                         <td class="text-center">{{ item.Description }}</td>
-                         <!-- This button will let you take the take the survey-->
+                        <td class="text-center">{{ item.type }}</td>
+                        <td class="text-center">{{ item.priority }}</td>
+                        <td class="text-center">{{ item.created }}</td>
+                        
                         <td class="text-center">
-                            <a href="/survey/edit/<%= Surveys[count]._id %>" class="btn btn-info btn-sm">
-                            <i class="fas fa-poll-h"></i> Take Survey</a>
-                        </td>
-                        <td class="text-center">
-                            <a href="/survey/edit/<%= Surveys[count]._id %>" class="btn btn-primary btn-sm">
+                            <a href="/survey/edit/{{ item._id }}" class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
                         <td class="text-center">
-                            <a href="/survey/delete/<%= Surveys[count]._id %>" class="btn btn-danger btn-sm">
+                            <a href="/survey/delete/{{ item._id }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> Delete</a>
                         </td>
                     </tr>
@@ -41,7 +44,7 @@
     <div align="center">
         <a href="/survey/add" class="btn btn-primary align-self-end" role="button">
             <i class="fas fa-plus-circle"></i> 
-            Create a New Survey
+            Add a new Ticket
         </a>     
     </div>
   </main>

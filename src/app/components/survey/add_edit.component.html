@@ -12,33 +12,44 @@
                 <form novalidate #form="ngForm" (ngSubmit)="save(form)">
                     <div class="form-group">
                         <input type="hidden" name="id" [(ngModel)]="survey._id" value="{{ survey._id }}">
-                        <label for="surveyTextField">Name</label>
+                        <label for="surveyTextField">Incident Record</label>
                         <input type="text" class="form-control" id="surveyTextField" value="{{ survey.Name }}"
                             name="Name" placeholder="Enter a Name for this Survey" [(ngModel)]="survey.Name" required>
                     </div>
                     <br />
                     <div class="form-group">
+                        <label for="customerInfo" class="labelList">Type of Incident</label>
+                        <select class="form-control" id="type" name="type" [(ngModel)]="survey.type" required>
+                            <option value="Workplace Incident">Workplace Incident</option>
+                            <option value="Security Breach" selected>Security Breach</option>
+                            <option value="Physical Damage">Physical Damage</option>
+                            <option value="Mechanical Failure">Mechanical Failure</option>
+                        </select>
+                        <!-- <input type="text" class="form-control" id="surveyTextField"
+                            placeholder="{{ survey.Question1 }}" name="Question1" [(ngModel)]="survey.Question1" required> -->
+                    </div>
+                    <br />
+                    <div class="form-group">
                         <label for="surveyTextField">Description</label>
                         <input type="text" class="form-control" id="surveyTextField" placeholder="Enter the Description"
-                            name="Description" value="{{ survey.Description }}" [(ngModel)]="survey.Description" >
+                            name="Description" [(ngModel)]="survey.Description" >
+                    </div>
+                    <br />
+                    <div class="form-group ">
+                        <label for="customerInfo" class="labelList">Incident Priority</label>
+                        <select class="form-control" id="priority" name="priority" [(ngModel)]="survey.priority" required>
+                            <option value="High">Very Low</option>
+                            <option value="Low">Low</option>
+                            <option value="Normal" selected>Normal</option>
+                            <option value="High">High</option>
+                            <option value="High">Critical</option>
+                        </select>
                     </div>
                     <br />
                     <div class="form-group">
-                        <label for="surveyTextField">Question1</label>
-                        <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="{{ survey.Question1 }}" name="Question1" [(ngModel)]="survey.Question1" required>
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <label for="surveyTextField">Question2</label>
-                        <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="{{ survey.Question2 }}" name="Question2" [(ngModel)]="survey.Question2" required>
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <label for="surveyTextField">Question3</label>
-                        <input type="text" class="form-control" id="surveyTextField"
-                            placeholder="{{ survey.Question3 }}" name="Question3" [(ngModel)]="survey.Question3" required>
+                        <label for="surveyTextField">Date of Incident </label>
+                        <input type="date" class="form-control" id="surveyTextField" 
+                            name="created" [(ngModel)]="survey.created" >
                     </div>
                     <div class="mt-3">
                         <button class="btn btn-primary" type="submit">

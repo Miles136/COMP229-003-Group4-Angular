@@ -28,11 +28,8 @@ import { AuthGuard } from './components/auth/auth.guard';
     RouterModule.forRoot([
       { path: "", component: IndexComponent },
       { path: "survey/list", component: ListComponent },
+      { path: "survey/:mode", component: AddEditComponent },
       { path: "survey/:mode/:id", component: AddEditComponent, canActivate: [AuthGuard] },
-      // { path: "survey/edit", component: AddEditComponent, canActivate: [AuthGuard]},
-      // { path: "survey/add", component: AddEditComponent, canActivate: [AuthGuard]},
-      // { path: "survey/edit/:id", component: AddEditComponent, canActivate: [AuthGuard] },
-      // { path: "survey/add/:id", component: AddEditComponent, canActivate: [AuthGuard] },
       { path: "users/signup", component: SignUpComponent },
       { path: "users/signin", component: SignInComponent },
       { path: "**", redirectTo: "" }

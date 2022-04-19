@@ -1,0 +1,60 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    
+    margin-bottom: 60px;
+    color: #cfcdca;
+    background-color: #191a1a;
+  }
+  h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 50px;
+  }
+  h3 {
+    font-family: Garamond, serif;
+    font-size: 1.25rem;
+  }
+  p {
+    font-family: Garamond, serif;
+  }
+  img {
+    min-width: 400px;
+    max-width: 100%;
+    height: auto;
+  }
+  .logo {
+    min-width: 0;
+    width: 46px;
+    height: 46px;
+  }
+  a {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 130%;
+    color:rgb(203, 253, 253);
+    
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+  .flash{
+    color: red;
+  }
+  
+  .divider:after,
+  .divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+  }
+  
+  
