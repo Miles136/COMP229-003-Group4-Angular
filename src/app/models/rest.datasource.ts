@@ -18,8 +18,8 @@ export class RestDataSource {
 
     constructor( private http: HttpClient) {
         // this.baseUrl = '${PROTOCOL}://${location.hostname}:${PORT}/';
-        // this.baseUrl = "http://serene-caverns-96105.herokuapp.com:4000";
-        this.baseUrl = "http://localhost:4000/";
+        // this.baseUrl = "http://localhost:4000/";
+        this.baseUrl = "https://backendcomp229-group4.herokuapp.com/";
     }
 
     getSurveysList(): Observable<Surveys[]> {
@@ -75,6 +75,7 @@ export class RestDataSource {
             map(response => {
                 // console.log(response);
                 this.auth_token = response.success ? response.token : null;
+                // console.log(this.auth_token);
                 return response;
             }),
             catchError(error => {return of(error.error)})

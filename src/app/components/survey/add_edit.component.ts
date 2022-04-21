@@ -26,9 +26,12 @@ export class AddEditComponent {
 
         this.editing = activeRoute.snapshot.params["mode"] == "edit";
         
-        if (this.editing) {
+        if (activeRoute.snapshot.params["mode"] == "edit") {
+            this.title = "Edit Ticket";
             this.survey = repository.getSurvey(activeRoute.snapshot.params["id"]);
-        }  
+            // console.log("repository " + this.repository);
+            // console.log("survey " + repository.getSurvey(activeRoute.snapshot.params["id"]));
+        }
     }
 
     save(form: NgForm) {

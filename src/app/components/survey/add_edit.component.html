@@ -11,7 +11,7 @@
                 <!-- <form class="form" method="POST"> -->
                 <form novalidate #form="ngForm" (ngSubmit)="save(form)">
                     <div class="form-group">
-                        <input type="hidden" name="id" [(ngModel)]="survey._id" value="{{ survey._id }}">
+                        <input type="hidden" name="id" [(ngModel)]="survey._id">
                         <label for="surveyTextField">Incident Record</label>
                         <input type="text" class="form-control" id="surveyTextField" value="{{ survey.Name }}"
                             name="Name" placeholder="Enter a Name for this Survey" [(ngModel)]="survey.Name" required>
